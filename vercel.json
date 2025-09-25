@@ -1,8 +1,14 @@
 {
   "rewrites": [
+    { "source": "/api/:path*", "destination": "/api/index" },
+    { "source": "/", "destination": "/html.html" }
+  ],
+  "headers": [
     {
-     "source": "/(.*)",
-      "destination": "/api"
+      "source": "/(css|js|img)/:file*",
+      "headers": [
+        { "key": "Cache-Control", "value": "max-age=86400" }
+      ]
     }
   ]
 }
